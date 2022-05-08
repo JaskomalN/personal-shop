@@ -1,0 +1,11 @@
+const express = require('express');
+const { Model } = require('mongoose');
+const router = express.Router();
+const item = require("../Model/Item");
+const item_control = require("../Controls/control");
+router.get("/", item_control.retrieve_items);
+router.post("/", item_control.new_item);
+router.get("/:id", item_control.retrieve_ID);
+router.put("/:id", item_control.add_new_info);
+router.delete("/:id", item_control);
+module.exports = router;
