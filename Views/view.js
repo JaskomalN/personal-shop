@@ -7,5 +7,5 @@ router.get("/", item_control.retrieve_items);
 router.post("/", item_control.new_item);
 router.get("/:id", item_control.retrieve_ID);
 router.put("/:id", item_control.add_new_info);
-router.delete("/:id", item_control);
+router.delete("/:id", item_control.remove_item);
 module.exports = router;

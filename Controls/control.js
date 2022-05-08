@@ -73,11 +73,19 @@ const remove_item = async(request, response, next) => {
     const id = request.params.id;
     let item;
     try{
-        
+        item = await Item.findByIdAndRemove(id);
     }
-}
+    catch(err){
+        console.log(err);
+    }
+    if(!item){
+        return response.status(404).json({message:"Cannot Carry Out This Operation"});
+    }
+    return response.status(200).json({item});
+};
 
 exports.retrieve_items = retrieve_items; 
 exports.new_item = new_item;
 exports.retrieve_ID = retrieve_ID;
 exports.add_new_info = add_new_info;
+exports.remove_item = remove_item;
