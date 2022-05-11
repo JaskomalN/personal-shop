@@ -20,6 +20,10 @@ const item_schema = new Schema(
     item_availability:{
         type: Boolean,
         required: true
+    },
+    item_image:{
+        type: String,
+        required: true
     }
     });
 

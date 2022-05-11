@@ -27,7 +27,7 @@ const retrieve_ID = async(request, response, next) => {
 };
 
 const new_item = async(request, response, next) => {
-    const {item_name,item_description,item_brand,item_price,item_availability} = request.body;
+    const {item_name,item_description,item_brand,item_price,item_availability, item_image} = request.body;
     let item;
     try{
         item = new Item({
@@ -35,7 +35,8 @@ const new_item = async(request, response, next) => {
             item_description,
             item_brand,
             item_price,
-            item_availability
+            item_availability,
+            item_image
         });
         await item.save();
     }
@@ -48,7 +49,7 @@ const new_item = async(request, response, next) => {
 
 const add_new_info = async(request, response, next) => {
     const id = request.params.id;
-    const {item_name,item_description,item_brand,item_price,item_availability} = request.body;
+    const {item_name,item_description,item_brand,item_price,item_availability, item_image} = request.body;
     let item;
     try {
         item = await Item.findByIdAndUpdate(id, {
@@ -56,7 +57,8 @@ const add_new_info = async(request, response, next) => {
             item_description,
             item_brand,
             item_price,
-            item_availability
+            item_availability,
+            item_image
         });
         item = await item.save();
     }
@@ -81,7 +83,7 @@ const remove_item = async(request, response, next) => {
     if(!item){
         return response.status(404).json({message:"Cannot Carry Out This Operation"});
     }
-    return response.status(200).json({item});
+    return response.status(200).json({message:"This item no longer exists"});
 };
 
 exports.retrieve_items = retrieve_items; 
