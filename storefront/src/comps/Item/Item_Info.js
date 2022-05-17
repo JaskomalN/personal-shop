@@ -1,27 +1,41 @@
 import { Button, Checkbox, FormLabel, TextField, Box, FormControlLabel } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Item_Info = () => {
     const [inputs,setInputs] = useState({});
     const id = useParams().id;
     const [check,setCheck] = useState(false);
-    console.log(id);
+    const history = useNavigate;
     useEffect(() => {
         const fetchHandler = async() => {
-            await axios.get(`http://localhost:5000/items/${id}`).then(response=>console.log(response.data));
+            await axios.get(`http://localhost:5000/items/${id}`).then(response=>response.data).then(data=>setInputs(data.item));
         };
-        fetchHandler().then((data)=>setInputs(data.item));
+        fetchHandler();
      }, [id]);
+     const Request = async() => {
+         await axios.put(`http://localhost:5000/items/${id}`, { 
+         item_name: String(inputs.item_name),
+         item_description: String(inputs.item_description),
+         item_brand: String(inputs.item_brand),
+         item_price: Number(inputs.item_price),
+         item_image:String(inputs.item_image),
+         item_availability: Boolean(check)
+     }).then(response=>response.data);
+     };
      const Submission = (event) => {
          event.preventDefault();
-     }
+         Request().then(()=>history('/shop'));
+     };
      const handleChange = (event) => {
-         console.log(event);
-     }
-  return <div>
-      <form onSubmit={Submission}>
+        setInputs((prevState) => ({
+            ...prevState,
+            [event.target.name]: event.target.value
+        }))
+     };
+  return( <div>
+     {inputs && ( <form onSubmit={Submission}>
       <Box 
       display= "flex" 
       flexDirection= "column" 
@@ -45,8 +59,8 @@ const Item_Info = () => {
       <FormControlLabel control={<Checkbox checked={check} onChange={()=>setCheck(!check)}/>} label="Available"/>
       <Button sx = {{backgroundColor: '#ECBDC4'}} variant = 'contained' type='submit'>Update Item</Button>
       </Box>
-  </form>
-  </div>;
+  </form>)};
+  </div>);
 };
 
 export default Item_Info
