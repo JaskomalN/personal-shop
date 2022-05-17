@@ -9,21 +9,21 @@ I also wanted to be able to update, add to, and remove inventory in real-time, i
 Adding an item to the storefront is super easy!
 
 Here you can see the "add item" form, populated with the information needed to add a new item:
-![personal-shop](https://github.com/JaskomalN/personal-shop/add_necklace.png)
+![personal-shop](https://github.com/JaskomalN/personal-shop/blob/main/add_necklace.png)
 
 Now, you can see that the new item has been added along with the rest!
-![personal-shop](https://github.com/JaskomalN/personal-shop/after_addition.png)
+![personal-shop](https://github.com/JaskomalN/personal-shop/blob/main/after_addition.png)
 
 # Updating an Item
 I wanted to be able to make any changes or updates to an item very easily. Here you can see the populated information form pop up, after I click "Update" on the yellow dress, with the price updated to $20, instead of $15:
-![personal-shop](https://github.com/JaskomalN/personal-shop/update_item.png)
+![personal-shop](https://github.com/JaskomalN/personal-shop/blob/main/update_item.png)
 
 As you can see, this has updated the price of the yellow dress!
-![personal-shop](https://github.com/JaskomalN/personal-shop/after_update.png)
+![personal-shop](https://github.com/JaskomalN/personal-shop/blob/main/after_update.png)
 
 # Removing an Item
 In the case that an item gets sold, or I no longer want to sell it, I also wanted to be able to easily remove an item from the website. By clicking the "Remove" button on the brown sneakers, I can remove them:
-![personal-shop](https://github.com/JaskomalN/personal-shop/remove_item.png)
+![personal-shop](https://github.com/JaskomalN/personal-shop/blob/main/remove_item.png)
 
 This takes the user back to the "shop" page with all the items, which reflects the removal of the brown sneakers.
-![personal-shop](https://github.com/JaskomalN/personal-shop/after_removing.png)
+![personal-shop](https://github.com/JaskomalN/personal-shop/blob/main/after_removing.png)
